@@ -13,12 +13,20 @@
 - good morning
 - good evening
 - hey there
+- 你好
+- 早上好
+- 中午好
+- 晚上好
+- 吃了吗
 
 ## intent:goodbye
 - bye
 - goodbye
 - see you around
 - see you later
+- 再见
+- 拜拜
+- 下次见
 
 ## intent:affirm
 - yes
@@ -26,6 +34,11 @@
 - of course
 - that sounds good
 - correct
+- ok
+- 好的
+- 可以
+- 当然
+- 没问题
 
 ## intent:deny
 - no
@@ -34,6 +47,9 @@
 - don't like that
 - no way
 - not really
+- 不
+- 不行
+- 算了
 
 ## intent:mood_great
 - perfect
