@@ -17,20 +17,20 @@ class MatchEntityExtractor(EntityExtractor):
     }
 
     def __init__(self, component_config=None):
-        print('init')
+        print("init")
         super(MatchEntityExtractor, self).__init__(component_config)
-        self.dictionary_path = self.component_config.get('dictionary_path')
+        self.dictionary_path = self.component_config.get("dictionary_path")
         self.data = {}  # 用于绝对匹配的数据
         for file_path in os.listdir(self.dictionary_path):
             if file_path.endswith(".txt"):
                 file_path = os.path.join(self.dictionary_path, file_path)
                 file_name = os.path.basename(file_path)[:-4]
-                with open(file_path, mode='r', encoding='utf-8') as f:
+                with open(file_path, mode="r", encoding="utf-8") as f:
                     self.data[file_name] = f.read().splitlines()
 
     def process(self, message, **kwargs):
         """绝对匹配提取实体词"""
-        print('process')
+        print("process")
         entities = []
         for entity, value in self.data.items():
             for i in value:
@@ -48,5 +48,5 @@ class MatchEntityExtractor(EntityExtractor):
 
     @classmethod
     def load(cls, meta: Dict[Text, Any], model_dir=None, model_metadata=None, cached_component=None, **kwargs):
-        print('load')
+        print("load")
         return cls(meta)
