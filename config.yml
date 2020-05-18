@@ -2,7 +2,8 @@ language: en
 pipeline:
 - name: "SpacyNLP"
 - name: "SpacyTokenizer"
-- name: "sentiment.SentimentAnalyzer"
+- name: "extractors.match_entity_extractor.MatchEntityExtractor"
+  dictionary_path: "data/lookup_tables/"
 - name: "SpacyFeaturizer"
 - name: "RegexFeaturizer"
 - name: "CRFEntityExtractor"
