@@ -4,6 +4,8 @@ pipeline:
 - name: "SpacyTokenizer"
 - name: "extractors.match_entity_extractor.MatchEntityExtractor"
   dictionary_path: "data/lookup_tables/"
+#  take_long: True
+  take_short: True
 - name: "SpacyFeaturizer"
 - name: "RegexFeaturizer"
 - name: "CRFEntityExtractor"
