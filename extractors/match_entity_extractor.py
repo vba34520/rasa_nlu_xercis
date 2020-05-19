@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @Author  : XerCis
-# @Time    : 2020/5/15 15:33
+# @Time    : 2020/5/18 16:13
 # @Function: Extract entity
 
 import os
@@ -20,7 +20,7 @@ class MatchEntityExtractor(EntityExtractor):
     }
 
     def __init__(self, component_config=None):
-        print("init")
+        # print("init")
         super(MatchEntityExtractor, self).__init__(component_config)
         self.dictionary_path = self.component_config.get("dictionary_path")
         self.take_long = self.component_config.get("take_long")
@@ -37,7 +37,7 @@ class MatchEntityExtractor(EntityExtractor):
 
     def process(self, message, **kwargs):
         """绝对匹配提取实体词"""
-        print("process")
+        # print("process")
         entities = []
         for entity, value in self.data.items():
             for i in value:
@@ -55,14 +55,14 @@ class MatchEntityExtractor(EntityExtractor):
                 v0, v1 = i[0]["value"], i[1]["value"]
                 if v0 in v1 or v1 in v0:
                     (long, short) = (i[0], i[1]) if len(v0) > len(v1) else (i[1], i[0])
-                    if self.take_long == True:
+                    if self.take_long == True and short in entities:
                         entities.remove(short)
-                    if self.take_short == True:
+                    if self.take_short == True and long in entities:
                         entities.remove(long)
         extracted = self.add_extractor_name(entities)
         message.set("entities", extracted, add_to_output=True)
 
     @classmethod
     def load(cls, meta: Dict[Text, Any], model_dir=None, model_metadata=None, cached_component=None, **kwargs):
-        print("load")
+        # print("load")
         return cls(meta)
