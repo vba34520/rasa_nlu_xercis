@@ -1,7 +1,11 @@
+# -*- coding: utf-8 -*-
+# @Author  : XerCis
+# @Time    : 2020/6/24 16:00
+# @Function: Match entity edit intent
+
+from typing import List, Type
 from collections import deque, Counter
 from rasa.nlu.components import Component
-from rasa.nlu.training_data import Message
-from typing import Any, Dict, Optional, Text, List, Type
 from rasa.nlu.extractors.extractor import EntityExtractor
 from rasa.nlu.classifiers.classifier import IntentClassifier
 
