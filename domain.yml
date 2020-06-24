@@ -5,6 +5,14 @@ intents:
   - deny
   - mood_great
   - mood_unhappy
+  - ask_city
+  - ask_scene
+  - ask_time
+
+entities:
+  - city
+  - scene
+  - time
 
 actions:
 - utter_greet

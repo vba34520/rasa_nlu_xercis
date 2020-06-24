@@ -11,3 +11,10 @@ pipeline:
 - name: "CRFEntityExtractor"
 - name: "EntitySynonymMapper"
 - name: "SklearnIntentClassifier"
+- name: "classifiers.entity_edit_intent.EntityEditIntent"
+  entity: ["scene", "city"]  # 根据下标一一对应，实体scene对应意图ask_scene，且ask_scene优先级大于ask_city
+  intent: ["ask_scene", "ask_city"]
+  min_confidence: 1  # 置信度阈值，预设为绝对修改
+  max_entitiy_count: 3  # 实体允许出现的最大数量
+  max_entitiy_type: 2  # 实体类型允许出现的最大数量
+  edit_intent_ranking: True  # 是否修改intent_ranking

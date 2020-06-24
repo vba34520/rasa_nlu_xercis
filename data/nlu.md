@@ -72,3 +72,12 @@
 - not very good
 - extremely sad
 - so sad
+
+## intent:ask_city
+- [北京](city)
+
+## intent:ask_scene
+- [故宫](scene)
+
+## intent:ask_time
+- [今天](time)

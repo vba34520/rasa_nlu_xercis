@@ -6,7 +6,7 @@
 import os
 from itertools import combinations
 from typing import Any, Text, Dict
-from rasa.nlu.extractors import EntityExtractor
+from rasa.nlu.extractors.extractor import EntityExtractor
 
 
 class MatchEntityExtractor(EntityExtractor):
@@ -26,7 +26,7 @@ class MatchEntityExtractor(EntityExtractor):
         self.take_long = self.component_config.get("take_long")
         self.take_short = self.component_config.get("take_short")
         if self.take_long and self.take_short:
-            raise ValueError("take_long and take_short can not be both True")
+            raise ValueError("take_long and take_short can not be both True.")
         self.data = {}  # 用于绝对匹配的数据
         for file_path in os.listdir(self.dictionary_path):
             if file_path.endswith(".txt"):
